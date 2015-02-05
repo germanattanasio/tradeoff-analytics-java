@@ -1,0 +1,6 @@
+applications:
+- services:
+  - tradeoff-analytics-service
+  name: tradeoff-analytics-java
+  path: output/webApp.war
+  memory: 512M

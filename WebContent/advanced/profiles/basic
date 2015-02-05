@@ -1,0 +1,15 @@
+{
+	"favorites": true,
+	"favoritesTab": false,
+	"filters": true,
+	"filterHistogram": false,
+	"objectivesOnly": true,
+	"zoomIn": false,
+	"optimalsList": true,
+	"autoExcludedList": true,
+	"incompleteList": true,
+	"tradeoffAnalyzer": true,
+	"undoRedo": false,
+	"exploreViz": "both",
+	"questionEditor": "editableNoToggle"
+}
