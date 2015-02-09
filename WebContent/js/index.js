@@ -260,9 +260,19 @@
 
   function onError(error) {
     var errorMsg = 'Error processing the request.';
-    $('.errorMsg').text(error ? JSON.stringify(error, null, 4) : errorMsg);
+    if (error) {
+      try { 
+        errorMsg = JSON.stringify(error, null, 4);
+      } catch (e) {
+        // a complex object - can't be converted to json, take it's string representation
+        errorMsg = error;
+      }
+    }
+
+    $('.errorMsg').text(errorMsg);
     $('.errorArea').show();
     onPageReady();
+    jumpTo(".errorArea");
   }
 
   window.onerror = onError;
