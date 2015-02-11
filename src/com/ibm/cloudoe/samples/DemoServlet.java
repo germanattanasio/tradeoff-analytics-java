@@ -87,7 +87,7 @@ public class DemoServlet extends HttpServlet {
 			Request newReq = Request.Post(uri);
 			newReq.addHeader("Accept", "application/json");
 			InputStreamEntity entity = new InputStreamEntity(req.getInputStream());
-			newReq.bodyString(EntityUtils.toString(entity), ContentType.APPLICATION_JSON);
+			newReq.bodyString(EntityUtils.toString(entity,"UTF-8"), ContentType.APPLICATION_JSON);
 
 			Executor executor = Executor.newInstance().auth(username, password);
 			Response response = executor.execute(newReq);
