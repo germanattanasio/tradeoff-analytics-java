@@ -27,6 +27,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
@@ -91,9 +92,11 @@ public class DemoServlet extends HttpServlet {
 
 			Executor executor = Executor.newInstance().auth(username, password);
 			Response response = executor.execute(newReq);
+			HttpResponse httpResponse = response.returnResponse();
+			resp.setStatus(httpResponse.getStatusLine().getStatusCode());
+
 			ServletOutputStream servletOutputStream = resp.getOutputStream();
-			response.returnResponse().getEntity()
-			.writeTo(servletOutputStream);
+			httpResponse.getEntity().writeTo(servletOutputStream);
 			servletOutputStream.flush();
 			servletOutputStream.close();
 		} catch (Exception e) {
