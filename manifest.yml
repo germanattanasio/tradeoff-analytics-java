@@ -1,6 +1,6 @@
 ---
 declared-services:
-- user-modeling-service:
+- tradeoff-analytics-service:
     label: tradeoff_analytics
     plan: free
 applications:
