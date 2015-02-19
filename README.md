@@ -4,6 +4,10 @@
   better choices under multiple conflicting goals. The service combines smart
   visualization and recommendations for tradeoff exploration.
 
+Give it a try! Click the button below to fork into IBM DevOps Services and deploy your own copy of this application on Bluemix.
+
+[![Deploy to Bluemix](https://bluemix.net/deploy/button.png)](https://bluemix.net/deploy?repository=https://github.com/watson-developer-cloud/tradeoff-analytics-java.git)
+
 ## Getting Started
 
 1. Create a Bluemix Account
