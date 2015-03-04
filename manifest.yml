@@ -1,6 +1,6 @@
 ---
 declared-services:
-- tradeoff-analytics-service:
+  tradeoff-analytics-service:
     label: tradeoff_analytics
     plan: free
 applications:
