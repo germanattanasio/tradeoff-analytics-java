@@ -23,17 +23,23 @@
 
   // GLOBAL VARIABLES
   var taClient = null;
-  var themeChanged = false;
-  var profileChanged = false;
+  var lastTheme = $("#themes option:first").val();
+  var lastProfile = 'basic';
+  var MIN_BAR_SLIDE_PERIOD = 500;
 
   /**
    * Smooth scroll to any DOM element
    * @param  {String} DOM element
    */
-  function jumpTo(h) {
-    $('html, body').animate({
-        scrollTop: $(h).offset().top
-    }, 500);
+  function jumpTo(h,animate) {
+	if (animate === undefined || animate) {
+		$('html, body').animate({
+			scrollTop: $(h).offset().top
+		}, 500);
+    }
+    else {
+    	$(h)[0].scrollIntoView();
+    }
   }
 
   function createDom(elem, map, parent) {
@@ -258,17 +264,22 @@
     }
   }
 
-  function onError(error) {
+function onError(error) {
     var errorMsg = 'Error processing the request.';
     if (error) {
-      try { 
-        errorMsg = JSON.stringify(error, null, 4);
-      } catch (e) {
-        // a complex object - can't be converted to json, take it's string representation
-        errorMsg = error;
-      }
+    	if (error.responseText) {
+    		errorMsg = error.responseText;
+    	}
+    	else {
+	    	try { 
+	    		errorMsg = JSON.stringify(error, null, 4);
+	    	}
+	    	catch (e) { // a complex object - can't be converted to json, take it's toString representation
+	    		errorMsg = error.toString();
+	    	}
+	    }
     }
-
+    
     $('.errorMsg').text(errorMsg);
     $('.errorArea').show();
     onPageReady();
@@ -278,22 +289,52 @@
   window.onerror = onError;
 
   function onMaximize() {
+	$('#minimizeBar').show();
     $('#taWidgetContainer').addClass('fullsize');
     $(document.documentElement).addClass('noScroll');
 
     window.onkeyup = function(key) {
       if (key.keyCode === 27) onRestore();
     };
-
+    
     resizeToParent();
   }
 
+   function showMinimizeBar() {
+	$('#visibleMinimizeBar').stop(true);
+	$('#visibleMinimizeBar').animate({
+		top: 0
+	}, MIN_BAR_SLIDE_PERIOD	);
+	$('#taWidgetContainer').stop(true);
+	$('#taWidgetContainer').animate({
+			top: 20
+	}, MIN_BAR_SLIDE_PERIOD	);
+  }
+  
+  function hideMinimizeBar() {
+    if ($('#minimizeBar').is(':visible')) { // still visible after the timeout
+       $('#taWidgetContainer').stop(true);
+       $('#taWidgetContainer').animate({
+		 top: 0
+       }, MIN_BAR_SLIDE_PERIOD);
+       $('#visibleMinimizeBar').stop(true);
+	   $('#visibleMinimizeBar').animate({
+	  	 top: -19
+	  }, MIN_BAR_SLIDE_PERIOD);
+	}
+  }
+    
   function onRestore() {
-    window.onkeyup = null;
+	$('#minimizeBar').hide();
+	window.onkeyup = null;
+	$('#taWidgetContainer').stop(true);
+    $('#taWidgetContainer').css('top','0px');
+	$('#visibleMinimizeBar').stop(true);
+    $('#visibleMinimizeBar').css('top','-19px');
     $('#taWidgetContainer').removeClass('fullsize');
     $(document.documentElement).removeClass('noScroll');
     resizeToParent();
-    jumpTo('#taWidgetContainer');
+    jumpTo('#taWidgetContainer',false);
   }
 
   function loadProfile(profileName) {
@@ -303,7 +344,6 @@
   }
 
   function onProfileChanged() {
-    profileChanged = true;
     var profileName = $('.profiles').val();
     if (profileName === 'custom') {
       profileName = 'basic';
@@ -315,12 +355,10 @@
   }
 
   function onFeaturesChange() {
-    profileChanged = true;
   }
 
   function onThemeChanged() {
     loadTheme($('#themes').val());
-    themeChanged = true;
   }
 
   function loadTheme(themeName) {
@@ -329,31 +367,30 @@
     });
   }
 
-  function recreateWidgetIfNeeded(callback) {
-    if (profileChanged) {
-      var profile;
-      if ($('.showAdvance').val() === 'no') {
-        profile = 'basic';
-      } else {
-        var selectedProfile = $('.profiles').val();
-        profile = (selectedProfile === 'custom') ? JSON.parse($('#featuresText').val()) : selectedProfile;
-      }
-    }
-
-    if (themeChanged || profileChanged) {
-      var themeName = $('#themes').val() || 'basic';
-      if (taClient) {
-        destroyTradeoffAnalytcsWidget(function() {
-          loadTradeoffAnalytics(profile, themeName, callback, onError);
-        });
-      }
+  function recreateWidgetIfNeeded(showWidget) {
+	var showAdvanced = $('.showAdvance').val() === 'yes';
+	var selectedProfile = showAdvanced ?  $('.profiles').val() : 'basic';
+    var selectedTheme =  showAdvanced ?  $('#themes').val() : $("#themes option:first").val();
+	var profile = showAdvanced && selectedProfile === 'custom' ? JSON.parse($('#featuresText').val()) : selectedProfile;
+    
+    if (selectedTheme !== lastTheme || JSON.stringify(profile) !== JSON.stringify(lastProfile))  {
+	  destroyTradeoffAnalytcsWidget(function() {
+		loadTradeoffAnalytics(profile, selectedTheme, showWidget, onError);
+	  });
     } else {
-      callback();
+    	showWidget();
     }
-    themeChanged = false;
-    profileChanged = false;
+    
+    lastProfile = profile;
+    lastTheme = selectedTheme;
   }
-
+  
+  function openAdvanced() {
+	  $('.showAdvance').val('yes');
+	  toggleAdvance();
+	  jumpTo('.advancedArea');
+  }
+  
   // On page load
   $(document).ready(onPageLoad);
 
@@ -361,15 +398,32 @@
   $('.problems').change(loadSelectedProblem);
   $('.problemText').change(onProblemChanged);
   $('.viewTable').click(toggleTable);
+  $('#advancedLink').click(openAdvanced);
 
   // Advance customization events
   $('.showAdvance').change(toggleAdvance);
   $('.profiles').change(onProfileChanged);
   $('.themes').change(onThemeChanged);
-  //$('.featuresText').change(onFeaturesChange());
 
   // Visualization events
-  $('.maximize').click(onMaximize);
+  $('#maximize').click(onMaximize);
+  $('#minimize').click(onRestore);
+  
+  var timeoutHandle = null; 
+    
+  $('#minimizeBar').mouseenter(function() {
+	  if (timeoutHandle) {
+		clearTimeout(timeoutHandle);
+		timeoutHandle = null;
+	  }
+	  showMinimizeBar();
+  });
+  
+  $('#minimizeBar').mouseleave(function() {
+	 if ($('#minimizeBar').is(':visible')) {
+		 timeoutHandle = setTimeout(hideMinimizeBar,500);
+	 }
+  });
 
   // Analyze button
   $('.analyze').click(onAnalyzeClick);

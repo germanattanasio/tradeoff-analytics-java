@@ -64,10 +64,29 @@
   color: #777677;
 }
 
-.maximizeIcon {
+.resizeIcon {
   width: 16px;
   height: 16px;
   cursor: pointer;
+}
+
+#minimizeBar {
+  position: fixed;
+  top:0px;
+  right:0px;
+  width:100%;
+  height:20px;
+  z-index: 100;
+}
+
+#visibleMinimizeBar {
+  width:100%;
+  height:19px;
+  background-color: white;
+  padding: 0px 5px 0px 0px;
+/*   display:none; */
+  position:absolute;
+  top:-19px;
 }
 
 #taWidgetContainer.fullsize {
@@ -81,7 +100,7 @@
 
 #taWidgetContainer {
   width: 100%;
-  height: 90vh;
+  height: 70vh;
   display: block;
   padding: 0px;
 }
@@ -160,6 +179,10 @@
 #tablePlaceHolder th .legendIconMax {
   background-image: url('../images/up_arrow.png');
 }
+#tablePlaceHolder th .legendIconNone {
+  width: 0px;
+  height: 0px;
+}
 #tablePlaceHolder tr.even {
   background-color: #e6f7fd;
 }
@@ -209,4 +232,8 @@
 
 html.noScroll {
 	overflow: hidden;
+}
+
+.decisionArea {
+	z-index: -1;
 }

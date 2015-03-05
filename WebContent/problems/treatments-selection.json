@@ -1,115 +1,218 @@
 {
-	"subject": "Treatment",
-	"columns": [
-	    {
-	        "key": "treatment_duration",
-	        "full_name": "Planned treatment duration (months)",
-	        "type": "NUMERIC",
-	        "is_objective": true,
-	        "goal": "MIN"
-	    },
-	    {
-	        "key": "Adverse Effects",
-	        "full_name": "Adverse Effects (1 to 5)",
-	        "type": "NUMERIC",
-	        "is_objective": true,
-	        "goal": "MIN"
-	    },
-	    {
-	        "key": "% of success",
-	        "full_name": "Chance of success (%)",
-	        "type": "NUMERIC",
-	        "is_objective": true,
-	        "goal": "MAX"
-	    },
-	    {
-	        "key": "Duration of effectiveness",
-	        "full_name": "Duration of effectiveness (years)",
-	        "type": "NUMERIC",
-	        "is_objective": true,
-	        "goal": "MAX"
-	    }
-	],
-	"options": [
-	    {
-	        "key": "0",
-	        "name": "BTC",
-	        "values": {
-	            "treatment_duration": 12,
-	            "Adverse Effects": 5,
-	            "% of success": 50,
-	            "Duration of effectiveness": 10
-	        }
-	    },
-	    {
-	        "key": "1",
-	        "name": "BIC followed by weekly syntinene",
-	        "values": {
-	            "treatment_duration": 10,
-	            "Adverse Effects": 3,
-	            "% of success": 70,
-	            "Duration of effectiveness": 6.5
-	        }
-	    },
-	    {
-	        "key": "2",
-	        "name": "EG followed by syntinene every 2 weeks",
-	        "values": {
-	            "treatment_duration": 7,
-	            "Adverse Effects": 4,
-	            "% of success": 80,
-	            "Duration of effectiveness": 15
-	        }
-	    },
-	    {
-	        "key": "3",
-	        "name": "FEG followed by weekly syntinene",
-	        "values": {
-	            "treatment_duration": 12,
-	            "Adverse Effects": 5,
-	            "% of success": 75,
-	            "Duration of effectiveness": 12.5
-	        }
-	    },
-	    {
-	        "key": "4",
-	        "name": "EG followed by weekly syntinene",
-	        "values": {
-	            "treatment_duration": 3,
-	            "Adverse Effects": 1,
-	            "% of success": 65,
-	            "Duration of effectiveness": 5
-	        }
-	    },
-	    {
-	        "key": "5",
-	        "name": "AG followed by donatel every 3 weeks",
-	        "values": {
-	            "treatment_duration": 10,
-	            "Adverse Effects": 3,
-	            "% of success": 85,
-	            "Duration of effectiveness": 6
-	        }
-	    },
-	    {
-	        "key": "6",
-	        "name": "Dose-dense AG followed by donatel",
-	        "values": {
-	            "treatment_duration": 6,
-	            "Adverse Effects": 5,
-	            "% of success": 67,
-	            "Duration of effectiveness": 15
-	        }
-	    },
-	    {
-	        "key": "7",
-	        "name": "FEG followed by N",
-	        "values": {
-	            "treatment_duration": 13,
-	            "Adverse Effects": 2,
-	            "% of success": 84,
-	            "Duration of effectiveness": 10
-	        }
-	    }
-	]
+  "subject": "Treatment",
+  "columns": [
+    {
+      "key": "treatment_duration",
+      "full_name": "Planned treatment duration (months)",
+      "type": "NUMERIC",
+      "is_objective": true,
+      "goal": "MIN"
+    },
+    {
+      "key": "Adverse Effects",
+      "full_name": "Adverse effects (1 to 5)",
+      "type": "NUMERIC",
+      "is_objective": true,
+      "goal": "MIN"
+    },
+    {
+      "key": "% of success",
+      "full_name": "Chance of success (%)",
+      "type": "NUMERIC",
+      "is_objective": true,
+      "goal": "MAX"
+    },
+    {
+      "key": "Duration of effectiveness",
+      "full_name": "Duration of effectiveness (years)",
+      "type": "NUMERIC",
+      "is_objective": true,
+      "goal": "MAX"
+    },
+    {
+      "key": "price",
+      "full_name": "Out of pocket expenses ($)",
+      "type": "NUMERIC",
+      "is_objective": true,
+      "goal": "MIN"
+    }
+  ],
+  "options": [
+    {
+      "key": "0",
+      "name": "BTC",
+      "values": {
+        "treatment_duration": 12,
+        "Adverse Effects": 5,
+        "% of success": 50,
+        "Duration of effectiveness": 10,
+        "price": 8500
+      }
+    },
+    {
+      "key": "1",
+      "name": "BIC followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 10,
+        "Adverse Effects": 3,
+        "% of success": 70,
+        "Duration of effectiveness": 6.5,
+        "price": 11000
+      }
+    },
+    {
+      "key": "2",
+      "name": "EG followed by syntinene every 2 weeks",
+      "values": {
+        "treatment_duration": 7,
+        "Adverse Effects": 4,
+        "% of success": 70,
+        "Duration of effectiveness": 15,
+        "price": 8750
+      }
+    },
+    {
+      "key": "3",
+      "name": "FEG followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 7,
+        "Adverse Effects": 4,
+        "% of success": 85,
+        "Duration of effectiveness": 14.75,
+        "price": 8750
+      }
+    },
+    {
+      "key": "4",
+      "name": "EG followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 3,
+        "Adverse Effects": 1,
+        "% of success": 65,
+        "Duration of effectiveness": 5,
+        "price": 8000
+      }
+    },
+    {
+      "key": "5",
+      "name": "AG followed by donatel every 3 weeks",
+      "values": {
+        "treatment_duration": 10,
+        "Adverse Effects": 3,
+        "% of success": 90,
+        "Duration of effectiveness": 6,
+        "price": 11000
+      }
+    },
+    {
+      "key": "6",
+      "name": "Dose-dense AG followed by donatel",
+      "values": {
+        "treatment_duration": 8,
+        "Adverse Effects": 5,
+        "% of success": 67,
+        "Duration of effectiveness": 13,
+        "price": 7900
+      }
+    },
+    {
+      "key": "7",
+      "name": "FEG followed by N",
+      "values": {
+        "treatment_duration": 13,
+        "Adverse Effects": 2,
+        "% of success": 84,
+        "Duration of effectiveness": 10,
+        "price": 10500
+      }
+    },
+    {
+      "key": "8",
+      "name": "NBT",
+      "values": {
+        "treatment_duration": 13,
+        "Adverse Effects": 5,
+        "% of success": 45,
+        "Duration of effectiveness": 10,
+        "price": 8500
+      }
+    },
+    {
+      "key": "9",
+      "name": "NBT followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 11,
+        "Adverse Effects": 3,
+        "% of success": 50,
+        "Duration of effectiveness": 6.5,
+        "price": 11000
+      }
+    },
+    {
+      "key": "10",
+      "name": "ST followed by syntinene every 2 weeks",
+      "values": {
+        "treatment_duration": 10,
+        "Adverse Effects": 5,
+        "% of success": 60,
+        "Duration of effectiveness": 8,
+        "price": 9000
+      }
+    },
+    {
+      "key": "11",
+      "name": "GEG followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 9,
+        "Adverse Effects": 4,
+        "% of success": 60,
+        "Duration of effectiveness": 14.75,
+        "price": 8750
+      }
+    },
+    {
+      "key": "12",
+      "name": "FE followed by weekly syntinene",
+      "values": {
+        "treatment_duration": 7,
+        "Adverse Effects": 2,
+        "% of success": 65,
+        "Duration of effectiveness": 5,
+        "price": 8000
+      }
+    },
+    {
+      "key": "13",
+      "name": "AB followed by donatel every 3 weeks",
+      "values": {
+        "treatment_duration": 12,
+        "Adverse Effects": 3,
+        "% of success": 70,
+        "Duration of effectiveness": 5.5,
+        "price": 11000
+      }
+    },
+    {
+      "key": "14",
+      "name": "Dose-dense AB followed by donatel",
+      "values": {
+        "treatment_duration":10,
+        "Adverse Effects": 5,
+        "% of success": 60,
+        "Duration of effectiveness": 13,
+        "price": 8000
+      }
+    },
+    {
+      "key": "15",
+      "name": "FE followed by N",
+      "values": {
+        "treatment_duration": 13,
+        "Adverse Effects": 3,
+        "% of success": 75,
+        "Duration of effectiveness": 9,
+        "price": 10500
+      }
+    }
+  ]
 }

@@ -27,7 +27,7 @@
             "full_name": "Rat acute toxicity (LD50, mol/kg)",
             "type": "NUMERIC",
             "is_objective": true,
-            "goal": "MAX"
+            "goal": "MIN"
         },
         {
             "key": "Not_hERG_inhibitor",
@@ -38,91 +38,179 @@
         }
     ],
     "options": [
+	    {
+	      "key": "0",
+	      "name": "Blanfilast",
+	      "values": {
+	        "Intestinal_Absorption": 0.991,
+	        "BBB_Penetration": 0.9446,
+	        "Non-carcinogenic": 0.875,
+	        "Rat_acute_toxicity": 2.9547,
+	        "Not_hERG_inhibitor": 0.7501
+	      }
+	    },
+	    {
+	      "key": "1",
+	      "name": "Prembelol",
+	      "values": {
+	        "Intestinal_Absorption": 0.9484,
+	        "BBB_Penetration": 0.8631,
+	        "Non-carcinogenic": 0.5199,
+	        "Rat_acute_toxicity": 2.3882,
+	        "Not_hERG_inhibitor": 0.8546
+	      }
+	    },
+	    {
+	      "key": "2",
+	      "name": "Glucofilon",
+	      "values": {
+	        "Intestinal_Absorption": 0.8589,
+	        "BBB_Penetration": 0.9143,
+	        "Non-carcinogenic": 0.9716,
+	        "Rat_acute_toxicity": 3.3039,
+	        "Not_hERG_inhibitor": 0.969
+	      }
+	    },
+	    {
+	      "key": "3",
+	      "name": "Thamiphoride",
+	      "values": {
+	        "Intestinal_Absorption": 0.9775,
+	        "BBB_Penetration": 0.9382,
+	        "Non-carcinogenic": 0.9378,
+	        "Rat_acute_toxicity": 1.2287,
+	        "Not_hERG_inhibitor": 0.8735
+	      }
+	    },
+	    {
+	      "key": "4",
+	      "name": "Pseudonarine",
+	      "values": {
+	        "Intestinal_Absorption": 0.9645,
+	        "BBB_Penetration": 0.5638,
+	        "Non-carcinogenic": 0.7739,
+	        "Rat_acute_toxicity": 2.6024,
+	        "Not_hERG_inhibitor": 0.9277
+	      }
+	    },
+	    {
+	      "key": "5",
+	      "name": "Eriladrine",
+	      "values": {
+	        "Intestinal_Absorption": 0.9934,
+	        "BBB_Penetration": 0.966,
+	        "Non-carcinogenic": 0.9322,
+	        "Rat_acute_toxicity": 2.9371,
+	        "Not_hERG_inhibitor": 0.7961
+	      }
+	    },
+	    {
+	      "key": "6",
+	      "name": "Chlorogaline",
+	      "values": {
+	        "Intestinal_Absorption": 0.9939,
+	        "BBB_Penetration": 0.7421,
+	        "Non-carcinogenic": 0.8374,
+	        "Rat_acute_toxicity": 2.2158,
+	        "Not_hERG_inhibitor": 0.8293
+	      }
+	    },
+	    {
+	      "key": "7",
+	      "name": "Eurolone",
+	      "values": {
+	        "Intestinal_Absorption": 0.9522,
+	        "BBB_Penetration": 0.9525,
+	        "Non-carcinogenic": 0.9116,
+	        "Rat_acute_toxicity": 2.3715,
+	        "Not_hERG_inhibitor": 0.7418
+	      }
+		},
         {
-            "key": "0",
-            "name": "Blanfilast",
+            "key": "8",
+            "name": "Tranfilast",
             "values": {
-                "Intestinal_Absorption": 0.991,
-                "BBB_Penetration": 0.9446,
-                "Non-carcinogenic": 0.875,
-                "Rat_acute_toxicity": 2.2158,
+                "Intestinal_Absorption": 0.981,
+                "BBB_Penetration": 0.9346,
+                "Non-carcinogenic": 0.775,
+                "Rat_acute_toxicity": 3.2158,
                 "Not_hERG_inhibitor": 0.7501
             }
         },
         {
-            "key": "1",
-            "name": "Prembelol",
+            "key": "9",
+            "name": "Premvinol",
             "values": {
-                "Intestinal_Absorption": 0.9484,
-                "BBB_Penetration": 0.8631,
-                "Non-carcinogenic": 0.5199,
-                "Rat_acute_toxicity": 2.6024,
+                "Intestinal_Absorption": 0.9184,
+                "BBB_Penetration": 0.7631,
+                "Non-carcinogenic": 0.5,
+                "Rat_acute_toxicity": 3.024,
                 "Not_hERG_inhibitor": 0.8546
             }
         },
         {
-            "key": "2",
-            "name": "Glucofilon",
+            "key": "10",
+            "name": "Glutofilon",
             "values": {
-                "Intestinal_Absorption": 0.8589,
-                "BBB_Penetration": 0.9143,
-                "Non-carcinogenic": 0.9716,
-                "Rat_acute_toxicity": 1.2287,
+                "Intestinal_Absorption": 0.766,
+                "BBB_Penetration": 0.8143,
+                "Non-carcinogenic": 0.716,
+                "Rat_acute_toxicity": 3.4287,
                 "Not_hERG_inhibitor": 0.969
             }
         },
         {
-            "key": "3",
-            "name": "Thamiphoride",
+            "key": "11",
+            "name": "Thaminorphoride",
             "values": {
-                "Intestinal_Absorption": 0.9775,
-                "BBB_Penetration": 0.9382,
-                "Non-carcinogenic": 0.9378,
+                "Intestinal_Absorption": 0.9375,
+                "BBB_Penetration": 0.8382,
+                "Non-carcinogenic": 0.9,
                 "Rat_acute_toxicity": 3.3039,
-                "Not_hERG_inhibitor": 0.8735
+                "Not_hERG_inhibitor": 0.735
             }
         },
         {
-            "key": "4",
-            "name": "Pseudonarine",
+            "key": "12",
+            "name": "Pseudocitarine",
             "values": {
-                "Intestinal_Absorption": 0.9645,
-                "BBB_Penetration": 0.5638,
-                "Non-carcinogenic": 0.7739,
-                "Rat_acute_toxicity": 2.3882,
-                "Not_hERG_inhibitor": 0.9277
+                "Intestinal_Absorption": 0.6645,
+                "BBB_Penetration": 0.538,
+                "Non-carcinogenic": 0.5739,
+                "Rat_acute_toxicity": 2.9882,
+                "Not_hERG_inhibitor": 0.917
             }
         },
         {
-            "key": "5",
-            "name": "Eriladrine",
+            "key": "13",
+            "name": "Xiladrine",
             "values": {
-                "Intestinal_Absorption": 0.9934,
-                "BBB_Penetration": 0.966,
+                "Intestinal_Absorption": 0.7934,
+                "BBB_Penetration": 0.766,
                 "Non-carcinogenic": 0.9322,
-                "Rat_acute_toxicity": 2.3715,
+                "Rat_acute_toxicity": 2.5715,
                 "Not_hERG_inhibitor": 0.7961
             }
         },
         {
-            "key": "6",
-            "name": "Chlorogaline",
+            "key": "14",
+            "name": "Ciprogaline",
             "values": {
-                "Intestinal_Absorption": 0.9939,
-                "BBB_Penetration": 0.7421,
-                "Non-carcinogenic": 0.8374,
+                "Intestinal_Absorption": 0.8139,
+                "BBB_Penetration": 0.5421,
+                "Non-carcinogenic": 0.75,
                 "Rat_acute_toxicity": 2.9547,
                 "Not_hERG_inhibitor": 0.8293
             }
         },
         {
-            "key": "7",
-            "name": "Eurolone",
+            "key": "15",
+            "name": "Monolone",
             "values": {
-                "Intestinal_Absorption": 0.9522,
-                "BBB_Penetration": 0.9525,
-                "Non-carcinogenic": 0.9116,
-                "Rat_acute_toxicity": 2.9371,
+                "Intestinal_Absorption": 0.9122,
+                "BBB_Penetration": 0.9425,
+                "Non-carcinogenic": 0.90,
+                "Rat_acute_toxicity": 3.0371,
                 "Not_hERG_inhibitor": 0.7418
             }
         }

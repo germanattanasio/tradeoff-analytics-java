@@ -69,6 +69,8 @@
 								class="loading"><img src="images/loading.gif"
 								title="processing..."><span style="margin-left: 5px">Loading...</span></span>
 						</div>
+						<div class="col-lg-6 col-md-6 col-xs-6 text-right" style="height:1em"></div>
+						<div id="advancedLink" class="col-lg-6 col-md-6 col-xs-6 text-right"> <a style="cursor: pointer">Advanced</a> </div>
 					</div>
 					<div class="form-group row">
 						<div style="display: none;" class="col-lg-12 problemArea">
@@ -151,7 +153,7 @@
 									<select id="themes" class="themes form-control"><option
 											value="watson">Watson (default)</option>
 										<option value="teal">Teal</option>
-										<option value="gloomy">Gloomy</option></select>
+										<option value="dark">Dark</option></select>
 								</div>
 							</div>
 							<div class="form-group row">
@@ -192,8 +194,12 @@
 				<h2>Explore the tool</h2>
 				<div class="row">
 					<div class="col-lg-12 col-xs-12 text-right" style="padding-right: 0px;">
-						<a class="maximize"><img src="images/maximize.png"
-							class="maximizeIcon"></a>
+						<img id="maximize" src="images/maximize.png" class="resizeIcon"/>
+					</div>
+					<div id="minimizeBar" class="text-right fullscreen" style="display:none;">
+						<div id="visibleMinimizeBar">
+							<img id="minimize" src="images/minimize.png" class="resizeIcon"/>
+						 </div>
 					</div>
 					<div id="taWidgetContainer" class="col-lg-12 col-xs-12"></div>
 				</div>
