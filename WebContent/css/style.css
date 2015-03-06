@@ -1,68 +1,3 @@
-.img-container img {
-  width: 100%;
-  height: auto;
-}
-
-.top-nav {
-  background-color: #404041;
-  padding-top: 15px;
-  padding-bottom: 15px;
-}
-.top-nav a {
-  font-size: 14px;
-  font-weight: 300;
-  text-decoration: underline;
-  color: white;
-}
-.top-nav a:hover {
-  color: #E0E0E0;
-}
-
-.top-nav .right {
-  float: right;
-  margin-right: 20px;
-}
-.top-nav .left {
-  float: left;
-}
-.top-nav .fork:before {
-  content: " ";
-  background: url("../images/fork-icon.svg") no-repeat;
-  height: 16px;
-  width: 16px;
-  vertical-align: text-bottom;
-  display: inline-block;
-  margin-right: 3px;
-}
-.header {
-  padding-bottom:0px;
-  margin-bottom: 0px;
-}
-.header h2 {
-  font-weight: 400;
-}
-.header h3 {
-  color: #00b2ef;
-  font-weight: 400;
-}
-.avatar {
-  padding-right: 0px;
-}
-.avatar img {
-  margin-top: 9px;
-}
-.header a {
-  font-size: 14px;
-  font-weight: 300;
-  text-decoration: underline;
-  color: #404041;
-  display: block;
-  margin-left: 20px;
-  margin-bottom: 3px;
-}
-.header a:hover {
-  color: #777677;
-}
 
 .resizeIcon {
   width: 16px;
@@ -159,7 +94,7 @@
   width: 100%;
 }
 #tablePlaceHolder td, #tablePlaceHolder th {
-	border:1px solid #D3D3D3;
+  border:1px solid #D3D3D3;
 }
 #tablePlaceHolder td {
   padding: 2px;
@@ -178,10 +113,6 @@
 }
 #tablePlaceHolder th .legendIconMax {
   background-image: url('../images/up_arrow.png');
-}
-#tablePlaceHolder th .legendIconNone {
-  width: 0px;
-  height: 0px;
 }
 #tablePlaceHolder tr.even {
   background-color: #e6f7fd;
@@ -213,7 +144,7 @@
 .result {
   height: 0px;
   overflow: hidden;
-	visibility: hidden;
+  visibility: hidden;
 }
 .informationIcon {
   padding-left: 5px;
@@ -231,9 +162,9 @@
 }
 
 html.noScroll {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .decisionArea {
-	z-index: -1;
+  z-index: -1;
 }
