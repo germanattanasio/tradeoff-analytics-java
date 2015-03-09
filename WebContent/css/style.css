@@ -114,6 +114,12 @@
 #tablePlaceHolder th .legendIconMax {
   background-image: url('../images/up_arrow.png');
 }
+
+#tablePlaceHolder th .legendIconNone {
+  width: 0px;
+  height: 0px;
+}
+
 #tablePlaceHolder tr.even {
   background-color: #e6f7fd;
 }
