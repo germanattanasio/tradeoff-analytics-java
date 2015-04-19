@@ -17,6 +17,9 @@ package com.ibm.cloudoe.samples;
 
 import java.io.IOException;
 import java.net.URI;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,11 +30,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.http.HttpHost;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.CookieStore;
 import org.apache.http.client.fluent.Executor;
 import org.apache.http.client.fluent.Request;
 import org.apache.http.client.fluent.Response;
+import org.apache.http.cookie.Cookie;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.InputStreamEntity;
 import org.apache.http.util.EntityUtils;
@@ -47,7 +53,7 @@ public class DemoServlet extends HttpServlet {
 	private String serviceName = "tradeoff_analytics";
 
 	// If running locally complete the variables below with the information in VCAP_SERVICES
-	private String baseURL = "<url>";
+	private String baseURL = "http://localhost:8180/tradeoff-analytics-beta/api";
 	private String username = "<username>";
 	private String password = "<password>";
 
@@ -84,13 +90,14 @@ public class DemoServlet extends HttpServlet {
 				url += "?" + queryStr;
 			}
 			URI uri = new URI(url).normalize();
+			logger.info("posting to " + url);
 
 			Request newReq = Request.Post(uri);
 			newReq.addHeader("Accept", "application/json");
 			InputStreamEntity entity = new InputStreamEntity(req.getInputStream());
 			newReq.bodyString(EntityUtils.toString(entity,"UTF-8"), ContentType.APPLICATION_JSON);
 
-			Executor executor = Executor.newInstance().auth(username, password);
+			Executor executor = this.buildExecutor(uri);
 			Response response = executor.execute(newReq);
 			HttpResponse httpResponse = response.returnResponse();
 			resp.setStatus(httpResponse.getStatusLine().getStatusCode());
@@ -99,6 +106,8 @@ public class DemoServlet extends HttpServlet {
 			httpResponse.getEntity().writeTo(servletOutputStream);
 			servletOutputStream.flush();
 			servletOutputStream.close();
+
+			logger.info("post done");
 		} catch (Exception e) {
 			// Log something and return an error message
 			logger.log(Level.SEVERE, "got error: " + e.getMessage(), e);
@@ -157,5 +166,37 @@ public class DemoServlet extends HttpServlet {
 				logger.info("Doesn't match /^"+serviceName+"/");
 			}
 		}
+	}
+
+	/**
+	 * Build an executor for the specified url. This disables cookies and sets
+	 * preemptive authentication (creds are sent without waiting for a 401).
+	 * 
+	 * NOTE: This is required to avoid issues with load balancers that use
+	 * cookies due to Apache Http Client issue:
+	 * https://issues.apache.org/jira/browse/HTTPCLIENT-1451
+	 * 
+	 * @param url
+	 * @return
+	 */
+	private Executor buildExecutor(URI url) {
+		return Executor.newInstance().auth(username, password)
+				.authPreemptive(new HttpHost(url.getHost(), url.getPort(), url.getScheme()))
+				.cookieStore(new CookieStore() {
+					// Noop cookie store.
+					public void addCookie(Cookie arg0) {
+					}
+
+					public void clear() {
+					}
+
+					public boolean clearExpired(Date arg0) {
+						return false;
+					}
+
+					public List<Cookie> getCookies() {
+						return Collections.emptyList();
+					}
+				});
 	}
 }
