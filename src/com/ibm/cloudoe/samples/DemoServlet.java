@@ -53,7 +53,7 @@ public class DemoServlet extends HttpServlet {
 	private String serviceName = "tradeoff_analytics";
 
 	// If running locally complete the variables below with the information in VCAP_SERVICES
-	private String baseURL = "http://localhost:8180/tradeoff-analytics-beta/api";
+	private String baseURL = "<url>";
 	private String username = "<username>";
 	private String password = "<password>";
 
@@ -90,7 +90,6 @@ public class DemoServlet extends HttpServlet {
 				url += "?" + queryStr;
 			}
 			URI uri = new URI(url).normalize();
-			logger.info("posting to " + url);
 
 			Request newReq = Request.Post(uri);
 			newReq.addHeader("Accept", "application/json");
@@ -107,7 +106,6 @@ public class DemoServlet extends HttpServlet {
 			servletOutputStream.flush();
 			servletOutputStream.close();
 
-			logger.info("post done");
 		} catch (Exception e) {
 			// Log something and return an error message
 			logger.log(Level.SEVERE, "got error: " + e.getMessage(), e);
