@@ -4,37 +4,37 @@
     {
       "key": "treatment_duration",
       "full_name": "Planned treatment duration (months)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MIN"
+      "goal": "min"
     },
     {
       "key": "Adverse Effects",
       "full_name": "Adverse effects (1 to 5)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MIN"
+      "goal": "min"
     },
     {
       "key": "% of success",
       "full_name": "Chance of success (%)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "Duration of effectiveness",
       "full_name": "Duration of effectiveness (years)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "price",
       "full_name": "Out of pocket expenses ($)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MIN"
+      "goal": "min"
     }
   ],
   "options": [
