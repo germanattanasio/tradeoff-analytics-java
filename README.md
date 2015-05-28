@@ -12,8 +12,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 1. Create a Bluemix Account
 
-   [Sign up][sign_up] in Bluemix or use an existing account. Watson Services
-   in Beta are free to use.
+   [Sign up][sign_up] in Bluemix or use an existing account. 
 
 2. Download and install the [Cloud-foundry CLI][cloud_foundry] tool.
 
@@ -41,7 +40,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 5. Create the Tradeoff Analytics service in Bluemix.
 
   ```sh
-  $ cf create-service tradeoff_analytics free tradeoff-analytics-service
+  $ cf create-service tradeoff_analytics standard tradeoff-analytics-service
   ```
 
 6. Download and install the [ant][ant] compiler.
@@ -91,7 +90,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
           },
         "label": "tradeoff-analytics",
         "name": "tradeoff-analytics-service",
-        "plan": "free"
+        "plan": "standard"
      }]
     }
     }

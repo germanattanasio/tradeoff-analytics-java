@@ -4,57 +4,57 @@
     {
       "key": "YTD",
       "full_name": "YTD",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "Short Term (1 Yr)",
       "full_name": "Short Term (1 Yr)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "Mid Term (3 Yr)",
       "full_name": "Mid Term (3 Yr)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "Long Term (10 Yr)",
       "full_name": "Long Term (10 Yr)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MAX"
+      "goal": "max"
     },
     {
       "key": "Risk (Beta)",
       "full_name": "Risk (Beta)",
-      "type": "NUMERIC",
+      "type": "numeric",
       "is_objective": true,
-      "goal": "MIN"
+      "goal": "min"
     },
     {
       "key": "Net Expense",
       "full_name": "Net Expense",
-      "type": "NUMERIC"
+      "type": "numeric"
     },
     {
       "key": "Morningstar Rating",
       "full_name": "Morningstar Rating",
-      "type": "NUMERIC"
+      "type": "numeric"
     },
     {
       "key": "Manager Tenure",
       "full_name": "Manager Tenure",
-      "type": "NUMERIC"
+      "type": "numeric"
     },
     {
       "key": "Assets",
       "full_name": "Assets",
-      "type": "NUMERIC"
+      "type": "numeric"
     }
   ],
   "options": [

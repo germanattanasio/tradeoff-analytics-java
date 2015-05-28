@@ -4,37 +4,37 @@
         {
             "key": "Intestinal_Absorption",
             "full_name": "Human Intestinal Absorption (probability)",
-            "type": "NUMERIC",
+            "type": "numeric",
             "is_objective": true,
-            "goal": "MAX"
+            "goal": "max"
         },
         {
             "key": "BBB_Penetration",
             "full_name": "Blood Brain Barrier Penetration (probability)",
-            "type": "NUMERIC",
+            "type": "numeric",
             "is_objective": true,
-            "goal": "MAX"
+            "goal": "max"
         },
         {
             "key": "Non-carcinogenic",
             "full_name": "Non-carcinogenic (probability)",
-            "type": "NUMERIC",
+            "type": "numeric",
             "is_objective": true,
-            "goal": "MAX"
+            "goal": "max"
         },
         {
             "key": "Rat_acute_toxicity",
             "full_name": "Rat acute toxicity (LD50, mol/kg)",
-            "type": "NUMERIC",
+            "type": "numeric",
             "is_objective": true,
-            "goal": "MIN"
+            "goal": "min"
         },
         {
             "key": "Not_hERG_inhibitor",
             "full_name": "Not an hERG inhibitor (probability)",
-            "type": "NUMERIC",
+            "type": "numeric",
             "is_objective": true,
-            "goal": "MAX"
+            "goal": "max"
         }
     ],
     "options": [
