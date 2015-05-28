@@ -199,7 +199,7 @@
 	</div>
 </div>
 <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="https://ta-cdn.mybluemix.net/TradeoffAnalytics.js"></script>
+<script type="text/javascript" src="https://ta-cdn.mybluemix.net/v1/TradeoffAnalytics.js"></script>
 <script src="js/index.js"></script>
 </body>
 </html>
