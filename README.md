@@ -21,7 +21,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```none
   applications:
   - services:
-    - tradeoff-analytics-service
+    - tradeoff-analytics-standard-service
     name: <application-name>
     path: output/webApp.war
     memory: 512M
@@ -40,7 +40,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 5. Create the Tradeoff Analytics service in Bluemix.
 
   ```sh
-  $ cf create-service tradeoff_analytics standard tradeoff-analytics-service
+  $ cf create-service tradeoff_analytics standard tradeoff-analytics-standard-service
   ```
 
 6. Download and install the [ant][ant] compiler.
@@ -68,7 +68,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   The application uses the WebSphere Liberty profile runtime as its server,
   so you need to download and install the profile as part of the steps below.
 
-1. Copy the credentials from your `um-service` service in Bluemix to
+1. Copy the credentials from your `tradeoff-analytics-standard-service` service in Bluemix to
    `DemoServlet.java`. You can use the following command to see the
    credentials:
 
@@ -89,7 +89,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
             "username": "<username>"
           },
         "label": "tradeoff-analytics",
-        "name": "tradeoff-analytics-service",
+        "name": "tradeoff-analytics-standard-service",
         "plan": "standard"
      }]
     }
