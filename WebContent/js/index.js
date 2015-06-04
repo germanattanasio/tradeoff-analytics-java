@@ -149,9 +149,9 @@
 
     problem.columns.forEach(function(c) {
       var th = createDom('th', {
-        className: c.is_objective ? c.goal === 'MIN' ? 'minimize' : 'maximize' : 'info'
+        className: c.is_objective ? c.goal.toUpperCase() === 'MIN' ? 'minimize' : 'maximize' : 'info'
       }, tr);
-      var iconClassName = c.is_objective ? c.goal === 'MIN' ? 'legendIconMin' : 'legendIconMax' : 'legendIconNone';
+      var iconClassName = c.is_objective ? c.goal.toUpperCase() === 'MIN' ? 'legendIconMin' : 'legendIconMax' : 'legendIconNone';
       createDom('span', {
         className: 'legendIcon ' + iconClassName
       }, th);
