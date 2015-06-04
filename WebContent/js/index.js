@@ -70,7 +70,6 @@
       profile: profile
     }, 'taWidgetContainer');
 
-    taClient.subscribe('started', callback);
     taClient.subscribe('afterError', errCallback);
     taClient.subscribe('doneClicked', onResultSelection);
     
@@ -82,7 +81,7 @@
       });
     });
     
-    taClient.start();
+    taClient.start(callback);
   }
 
   function showTradeoffAnalytcsWidget(problem) {
