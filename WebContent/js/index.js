@@ -66,7 +66,7 @@
   function loadTradeoffAnalytics(profile, themeName, callback, errCallback) {
     taClient = new TradeoffAnalytics({
       dilemmaServiceUrl: 'demo',
-      customCssUrl: 'http://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
+      customCssUrl: 'https://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
       profile: profile
     }, 'taWidgetContainer');
 
