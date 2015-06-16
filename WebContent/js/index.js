@@ -64,7 +64,7 @@
    * Wrapper around the API
    */
   function loadTradeoffAnalytics(profile, themeName, callback, errCallback) {
-    taClient = new TradeoffAnalytics({
+    taClient = new TA.TradeoffAnalytics({
       dilemmaServiceUrl: 'demo',
       customCssUrl: 'http://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
       profile: profile
