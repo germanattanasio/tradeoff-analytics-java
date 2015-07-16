@@ -17,7 +17,7 @@
 			"preference" : ["Samsung", "Apple", "HTC", "LG", "Nokia", "Sony"]
 		}, {
 			"key" : "RAM",
-			"type" : "text",
+			"type" : "numeric",
 			"goal" : "max",
 			"full_name" : "RAM (MB)",
 			"is_objective" : false
