@@ -120,8 +120,9 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 ## License
 
-  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).
-
+  This sample code is licensed under Apache 2.0. Full license text is available in [LICENSE](LICENSE).  
+  This sample code uses jQuery which license is MIT.
+  
 ## Contributing
 
   See [CONTRIBUTING](CONTRIBUTING.md).
