@@ -4,12 +4,12 @@
 	"filters": true,
 	"filterHistogram": true,
 	"objectivesOnly": false,
-	"zoomIn": true,
 	"optimalsList": true,
 	"autoExcludedList": true,
 	"incompleteList": true,
 	"tradeoffAnalyzer": true,
 	"undoRedo": true,
 	"exploreViz": "both",
-	"questionEditor": "fullyEditable"
+	"questionEditor": "fullyEditable",
+	"optionDetails" : true
 }
