@@ -11,5 +11,6 @@
 	"undoRedo": false,
 	"exploreViz": "both",
 	"questionEditor": "editableNoToggle",
-	"optionDetails" : true
+	"optionDetails" : true,
+	"analytics": "MetadataAndEvents"
 }

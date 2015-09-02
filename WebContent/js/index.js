@@ -65,7 +65,8 @@
    */
   function loadTradeoffAnalytics(profile, themeName, callback, errCallback) {
     taClient = new TA.TradeoffAnalytics({
-      dilemmaServiceUrl: 'demo',
+      dilemmaServiceUrl: 'demo/dilemmas',
+      analyticsEventsUrl: 'demo/events',
       customCssUrl: 'https://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
       profile: profile
     }, 'taWidgetContainer');

@@ -84,15 +84,20 @@ public class DemoServlet extends HttpServlet {
 
 		req.setCharacterEncoding("UTF-8");
 		try {
-			String queryStr = req.getQueryString();
-			String url = baseURL + "/v1/dilemmas";
-			if (queryStr != null) {
-				url += "?" + queryStr;
-			}
+			String reqURI = req.getRequestURI();
+			String endpoint = reqURI.substring(reqURI.lastIndexOf('/') + 1);
+			String url = baseURL + "/v1/" + endpoint;
 			URI uri = new URI(url).normalize();
 
 			Request newReq = Request.Post(uri);
 			newReq.addHeader("Accept", "application/json");
+			
+			String metadata = req.getHeader("x-watson-metadata");
+			if (metadata != null) {
+				metadata += "client-ip:" + req.getRemoteAddr();
+				newReq.addHeader("x-watson-metadata",metadata);
+			}
+			
 			InputStreamEntity entity = new InputStreamEntity(req.getInputStream());
 			newReq.bodyString(EntityUtils.toString(entity,"UTF-8"), ContentType.APPLICATION_JSON);
 
