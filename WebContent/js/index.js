@@ -125,7 +125,7 @@
 
       createOptionsTable(problem, tableParent);
     } catch (err) {
-      onError({error:'JSON parsing error'});
+      onError('JSON parsing error');
     }
   }
 
@@ -246,7 +246,7 @@
       elementJson = JSON.parse(element.val());
     } catch(e) {
       element.css('border','1px solid red');
-      onError({error: 'JSON is malformed.'});
+      onError('JSON is malformed.');
       return elementJson;
     }
     element.css('border','1px solid grey');
@@ -281,20 +281,7 @@
   }
 
   function onError(error) {
-    var errorMsg = 'Error processing the request.';
-    if (error) {
-    	if (error.responseText) {
-    		errorMsg = error.responseText;
-    	}
-    	else {
-	    	try { 
-	    		errorMsg = JSON.stringify(error, null, 4);
-	    	}
-	    	catch (e) { // a complex object - can't be converted to json, take it's toString representation
-	    		errorMsg = error.toString();
-	    	}
-	    }
-    }
+    var errorMsg = error.errorMessage || error;
     $('.errorMsg').text(errorMsg);
     $('.errorArea').show();
     onPageReady();
