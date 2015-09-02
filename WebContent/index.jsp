@@ -27,7 +27,7 @@
                    <div class="avatar img-container col-lg-1 col-xs-1"><img src="images/app.png">
                    </div>
                    <div class="col-lg-6 col-xs-6">
-                       <h2>Tradeoff Analytics NodeJS Starter Application</h2>
+                       <h2>Tradeoff Analytics Java Starter Application</h2>
                        <p>The Tradeoff Analytics service helps find the best available options for you. It helps users make better decisions under multiple conflicting goals.</p><a href="http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tradeoff-analytics.html" class="learn-more">More about this service</a>
                    </div>
                    <div class="col-lg-4 col-xs-4 build-your-own">
