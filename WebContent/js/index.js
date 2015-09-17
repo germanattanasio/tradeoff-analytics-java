@@ -68,7 +68,8 @@
       dilemmaServiceUrl: 'demo/dilemmas',
       analyticsEventsUrl: 'demo/events',
       metadata: {
-    	"app-version" : "2015-09-03"
+    	'app-call-context' : 'tradeoff-analytics-java',
+     	'app-version' : '2015-09-17'
       },
       customCssUrl: 'https://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
       profile: profile
