@@ -64,7 +64,7 @@
 	],
 	"subject" : "phone",
 	"options" : [{
-			"key" : " 1",
+			"key" : "1",
 			"name" : "Samsung Galaxy S4 White",
 			"values" : {
 				"weight" : 130,

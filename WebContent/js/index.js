@@ -65,7 +65,12 @@
    */
   function loadTradeoffAnalytics(profile, themeName, callback, errCallback) {
     taClient = new TA.TradeoffAnalytics({
-      dilemmaServiceUrl: 'demo',
+      dilemmaServiceUrl: 'demo/dilemmas',
+      analyticsEventsUrl: 'demo/events',
+      metadata: {
+    	'app-call-context' : 'tradeoff-analytics-java',
+     	'app-version' : '2015-09-17'
+      },
       customCssUrl: 'https://ta-cdn.mybluemix.net/v1/modmt/styles/' + themeName + '.css',
       profile: profile
     }, 'taWidgetContainer');
@@ -85,7 +90,9 @@
   }
 
   function showTradeoffAnalytcsWidget(problem) {
-    taClient.show(problem, onResultsReady);
+    taClient.show(problem, onResultsReady, {
+    	"dataset-name" : problem.subject
+    });
     currentProblem = problem;
   }
 
@@ -125,7 +132,7 @@
 
       createOptionsTable(problem, tableParent);
     } catch (err) {
-      onError({error:'JSON parsing error'});
+      onError('JSON parsing error');
     }
   }
 
@@ -246,7 +253,7 @@
       elementJson = JSON.parse(element.val());
     } catch(e) {
       element.css('border','1px solid red');
-      onError({error: 'JSON is malformed.'});
+      onError('JSON is malformed.');
       return elementJson;
     }
     element.css('border','1px solid grey');
@@ -281,20 +288,7 @@
   }
 
   function onError(error) {
-    var errorMsg = 'Error processing the request.';
-    if (error) {
-    	if (error.responseText) {
-    		errorMsg = error.responseText;
-    	}
-    	else {
-	    	try { 
-	    		errorMsg = JSON.stringify(error, null, 4);
-	    	}
-	    	catch (e) { // a complex object - can't be converted to json, take it's toString representation
-	    		errorMsg = error.toString();
-	    	}
-	    }
-    }
+    var errorMsg = error.errorMessage || error;
     $('.errorMsg').text(errorMsg);
     $('.errorArea').show();
     onPageReady();
