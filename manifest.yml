@@ -1,11 +1,11 @@
 ---
 declared-services:
-  tradeoff-analytics-standard-service:
+  tradeoff-analytics-service:
     label: tradeoff_analytics
     plan: standard
 applications:
 - services:
-  - tradeoff-analytics-standard-service
+  - tradeoff-analytics-service
   name: tradeoff-analytics-java
   path: webApp.war
   memory: 512M
