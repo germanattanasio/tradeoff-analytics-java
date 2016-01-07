@@ -21,9 +21,9 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
   ```none
   applications:
   - services:
-    - tradeoff-analytics-standard-service
+    - tradeoff-analytics-service
     name: <application-name>
-    path: output/webApp.war
+    path: webApp.war
     memory: 512M
   ```
 
@@ -40,7 +40,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 5. Create the Tradeoff Analytics service in Bluemix.
 
   ```sh
-  $ cf create-service tradeoff_analytics standard tradeoff-analytics-standard-service
+  $ cf create-service tradeoff_analytics standard tradeoff-analytics-service
   ```
 
 6. Download and install the [ant][ant] compiler.
@@ -57,18 +57,15 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 8. Push it live!
   ```sh
-  $ cf push
+  $ cf push -p output/webApp.war
   ```
-
-   See the full [Getting Started][getting_started] documentation for more
-   details, including code snippets and references.
 
 ## Running locally
 
   The application uses the WebSphere Liberty profile runtime as its server,
   so you need to download and install the profile as part of the steps below.
 
-1. Copy the credentials from your `tradeoff-analytics-standard-service` service in Bluemix to
+1. Copy the credentials from your `tradeoff-analytics-service` service in Bluemix to
    `DemoServlet.java`. You can use the following command to see the
    credentials:
 
@@ -89,7 +86,7 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
             "username": "<username>"
           },
         "label": "tradeoff-analytics",
-        "name": "tradeoff-analytics-standard-service",
+        "name": "tradeoff-analytics-service",
         "plan": "standard"
      }]
     }
@@ -134,7 +131,6 @@ Give it a try! Click the button below to fork into IBM DevOps Services and deplo
 
 [service_url]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tradeoff-analytics.html
 [cloud_foundry]: https://github.com/cloudfoundry/cli
-[getting_started]: http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/doc/getting_started/
 [sign_up]: https://apps.admin.ibmcloud.com/manage/trial/bluemix.html?cm_mmc=WatsonDeveloperCloud-_-LandingSiteGetStarted-_-x-_-CreateAnAccountOnBluemixCLI
 [liberty]: https://developer.ibm.com/wasdev/downloads/
 [liberty_mac]: http://www.stormacq.com/how-to-install-websphere-8-5-liberty-profile-on-mac/
